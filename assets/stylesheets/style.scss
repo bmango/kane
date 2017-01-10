@@ -2,3 +2,70 @@
 ---
 
 @import "bootstrap";
+
+body {
+  font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+$green: #82cdce;
+
+#banner {
+  height: 181px;
+  width: 100%;
+  background: url("/assets/images/Banner-line.png") no-repeat 0 90px;
+
+  #logo {
+    width: 300px;
+    float: left;
+  }
+
+  #contact {
+    float: left;
+
+    div#address {
+      float: left;
+      background: #fff;
+      font-size: 1.0625em;
+      height: 181px;
+      box-sizing: border-box;
+      padding: 61px 0;
+
+      p.address {
+        padding: 0 20px 6px;
+        margin: 0 0 6px;
+        box-sizing: border-box;
+        height: 30px;
+        overflow: hidden;
+        &:first-child {
+          border-bottom: 1px solid #c4c4c4;
+        }
+      }
+    }
+
+    #tel {
+      float: left;
+      background: #fff;
+      height: 181px;
+      display: table;
+      background: #fff url("/assets/images/telephone.png") 10px center no-repeat;
+      padding: 0 0 0 39px;
+
+      .phone {
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-right: 15px;
+      }
+
+      .book {
+        color: $green;
+        font-size: 1.125em;
+      }
+    }
+  }
+
+}
+
+.td {
+  display: table-cell;
+  vertical-align: middle;
+}

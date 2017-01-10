@@ -1,8 +1,33 @@
 <header class="site-header" role="banner">
 
   <div class="wrapper">
+    <div id="banner">
+      <div class="container">
+        <div id="logo">
+          <a class="site-title" href="/"><img src="/assets/images/osteopath-london-logo.png" alt="London Osteopath Logo" width="300" height="181" /></a>
+        </div>
+        <div id="contact" class="clearfix">
+          <div id="address">
+            <p class="address">Harley Street, London W1G 8QH</p>
+            <p class="address">73 Courtfield Gardens, London SW5 0NL</p>
+          </div>
+          <div id="tel">
+            <div class="td">
+              <p><a class="phone" href="tel:+4420 7436 9007">020 7436 9007</a> <a class="book" href="/book" title="Book an appointment">book an appointment</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <a class="site-title" href="{{ "/" | relative_url}}">{{ site.title | escape }}</a>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Navbar</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
 
     <nav class="site-nav">
       <span class="menu-icon">
@@ -14,9 +39,10 @@
       </span>
 
       <div class="trigger">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}
-          <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+        {% assign pages = site.pages | sort:"order"  %}
+        {% for p in pages %}
+          {% if p.title %}
+          <a class="page-link" href="{{ p.url | relative_url }}">{{ p.title | escape }}</a>
           {% endif %}
         {% endfor %}
       </div>

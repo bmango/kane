@@ -14,6 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Kane and Ross Clinics
+meta-title: Osteopath London, Kane and Ross Osteopaths Central London
 email: info@kaneandross.co.uk
 description: > # this means to ignore newlines until "baseurl:"
   Structural and Cranial Osteopathy

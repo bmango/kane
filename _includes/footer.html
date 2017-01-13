@@ -1,46 +1,31 @@
 <footer class="site-footer">
 
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>
-            {% if site.author %}
-              {{ site.author | escape }}
-            {% else %}
-              {{ site.title | escape }}
-            {% endif %}
-            </li>
-            {% if site.email %}
-            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <img class="footer-logo" src="/assets/images/KRlogo-lines.png" width="341" height="211" />
+      </div>
+      <div class="col-md-5 col-md-offset-1">
+        <ul class="nav">
+          <li><a href="/">Home</a> </li>
+          <li><a href="/about.html">About Kane and Ross</a> </li>
+          <li><a href="/testimonials.html">Testimonials</a></li>
+          <li><a href="/appointments.html">Appointments</a></li>
+          <li><a href="/practitioners.html">Practitioners</a></li>
+          <li><a href="http://kaneandross.wordpress.com/" target="_blank">Blog</a></li>
         </ul>
       </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
+      <div class="col-md-3">
+        <div class="footer-links">
+          <a class="appointment" href="appointments.html">Book an Appointment</a>
+          <a class="phone" href="tel:+4420 7436 9007">020 7436 9007</a>
+          <a class="mail" href="mailto:info@kaneandrss.co.uk">Contact Us</a>
+        </div>
       </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description | escape }}</p>
+      <div class="col-md-8 col-md-offset-4 footer-line">
+        <p class="copy">&copy; 2016 Kane & Ross Clinics</p>
       </div>
     </div>
-
   </div>
 
 </footer>

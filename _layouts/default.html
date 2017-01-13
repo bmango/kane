@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  <body class="test {{ page.class }}" >
+  <body class="{% if page.url == '/' %}home{% endif %} {{ page.class }}" >
 
     {% include header.html %}
 

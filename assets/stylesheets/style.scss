@@ -5,10 +5,24 @@
 
 body {
   font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.04em;
+}
+
+h1, h2 {
+  font-family: Cinzel;
+  font-weight: bolder;
 }
 
 $green: #82cdce;
+$light-green: #e0eeef;
+$beige: #e2a077;
+$light-beige: #f9f0e9;
+$dark-blue: #26303f;
+
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 #banner {
   min-height: 181px;
@@ -67,6 +81,12 @@ $green: #82cdce;
 
 }
 
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
 .td {
   display: table-cell;
   vertical-align: middle;
@@ -80,11 +100,16 @@ $green: #82cdce;
   border: none;
   border-radius: 0;
   text-transform: uppercase;
+  font-size: 0.875em;
 
   ul.navbar-nav {
     > li {
       a {
         color: #fff;
+
+        &:hover {
+          color: $beige;
+        }
       }
     }
   }
@@ -95,3 +120,475 @@ $green: #82cdce;
   margin-top: -50px;
 }
 
+.header-lines {
+  background: url("/assets/images/heading-bg.png") no-repeat 50% top, url("/assets/images/heading-bg.png") no-repeat 50% bottom;
+  padding: 70px 0;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.well {
+  //color: $beige;
+  background: $light-beige;
+}
+
+body.home {
+  h1 {
+    font-size: 1.375em;
+    margin: 45px 0 1.5em;
+    font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  #home-header {
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  .our-services {
+    background: $light-green;
+
+    h2 {
+      font-family: Cinzel;
+      font-weight: bold;
+      text-align: center;
+      font-size: 2.25em;
+    }
+
+    .content {
+      overflow: hidden;
+      padding: 0 0 150px;
+
+      @media (min-width: $screen-lg-min) {
+        background: url("/assets/images/Backbone.png") no-repeat center -30px;
+      }
+
+        a {
+        display: block;
+        color: #000;
+        //border: 1px solid green;
+        box-sizing: content-box;
+        width: 450px;
+        transition: all 0.5s ease-in-out;
+        background-position: 0 35px;
+        position: relative;
+
+        dt {
+          color: $beige;
+          text-transform: uppercase;
+          font-size: 1.5em;
+          font-weight: lighter;
+          margin: 0 0 0.5em;
+          transition: all 0.5s ease-in-out;
+        }
+
+        dd {
+          font-size: 0.9375em;
+        }
+
+        &:before {
+          @media (min-width: $screen-lg-min) {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            background: url("/assets/images/service-line.png") no-repeat 0 35px;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+
+
+        &:hover {
+          text-decoration: none;
+          dt {
+            color: #000;
+          }
+
+          &:before {
+            @media (min-width: $screen-lg-min) {
+              opacity: 1;
+            }
+          }
+        }
+
+        &:nth-of-type(odd) {
+          float: left;
+          clear: both;
+          text-align: right;
+          padding-right: 100px;
+        }
+        &:nth-of-type(even) {
+          float: right;
+          clear: both;
+          text-align: left;
+          padding-left: 100px;
+        }
+      }
+
+    }
+
+  }
+}
+
+#testimonials {
+  background: url("/assets/images/KRtestimonials.png") no-repeat;
+  padding: 0 25px;
+  margin: 35px 0;
+
+  .carousel-control {
+    background: none !important;
+  }
+
+  .carousel-inner {
+
+    > .item {
+      //transition: 1.6s ease-in-out;
+      transition-duration: 0.9s;
+      transition-delay: -.1s;
+
+      .carousel-content {
+        padding: 0 130px;
+
+        > div {
+            font-size: 1em;
+            margin: 20px 0;
+            padding: .1em 30px;
+            line-height: 1.6em;
+            quotes: "\201C""\201D";
+            position: relative;
+            display: inline-block;
+
+            p {
+              padding: 0 40px 0 40px;
+
+              span {
+                font-size: 0.85em;
+                font-weight: bolder;
+                text-align: right;
+                display: block;
+              }
+            }
+
+          &:before {
+            //font-family: Georgia;
+            color: #808080;
+            content: open-quote;
+            font-size: 7em;
+            position: absolute;
+            top:25px;
+            //line-height: 0;
+            //vertical-align: -.21em;
+            //padding: 0 .1em 0 .1em;
+          }
+
+          &:after {
+            //font-family: Georgia;
+            color: #808080;
+            content: close-quote;
+            font-size: 7em;
+            line-height: 0.3em;
+            margin-right: 0.25em;
+            vertical-align: -0.57em;
+            padding: 0 0 0 .1em;
+            position: absolute;
+            right: 0;
+          }
+
+          &:first-child {
+            //position: absolute;
+            padding-top: .4em;
+          }
+
+          &:last-child {
+            //position: absolute;
+          }
+        }
+      }
+    }
+  }
+}
+
+#video {
+  background: url("/assets/images/videobgd.png") no-repeat center center;
+
+  .video-wrapper {
+    max-width: 795px;
+    margin: auto;
+
+    iframe {
+      display: block;
+    }
+  }
+}
+
+#blog {
+  background: $light-beige;
+  padding: 60px 0;
+  margin: 60px 0 20px;
+
+  .feed-item {
+    margin: 0 0 1.5em;
+    background: url("/assets/images/blogicon.png") no-repeat top left;
+    padding: 8px 0 0 60px;
+
+    a {
+      color: #000;
+      font-size: 1.125em;
+      margin: 0 0 .3em;
+    }
+
+    em {
+      font-size: 0.875em;
+      font-style: normal;
+    }
+
+    div.date {
+      color: $beige;
+      font-size: .875em;
+    }
+  }
+
+  .fipoweredby {
+    display: none;
+  }
+
+  img {
+    display: block;
+    margin-top: 50px;
+  }
+}
+
+#location {
+
+  h2 {
+    font-size: 2.25em;
+  }
+
+  .map {
+    float: left;
+    width: 50%;
+    padding: 20px 0 0;
+    
+    &.first {
+      background: url("/assets/images/KRHarleyStmpaline.png") no-repeat top left;
+      padding-left: 44px;
+    }
+
+    &:last-child {
+      background: url("/assets/images/KRSW5mpaline.png") no-repeat top right;
+      padding-right: 44px;
+      text-align: right;
+    }
+
+    .address {
+      margin: 0 0 35px;
+    }
+    iframe {
+      //display: block;
+    }
+  }
+}
+
+footer.site-footer {
+  background: $dark-blue;
+  margin: 60px 0 0;
+  min-height: 211px;
+  color: #c4c4c4;
+
+  img.footer-logo {
+    margin-left: -57px;
+    display: block;
+    float: left;
+  }
+
+  a {
+    color: $green;
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+      color:$beige;
+    }
+  }
+
+  ul.nav {
+    display: block;
+    padding: 25px 0;
+    column-count: 2;
+    font-size: 0.875em;
+
+    li {
+      a {
+        color: #c4c4c4;
+        text-transform: uppercase;
+        padding: 5px 5px 0;
+        margin: 0 0 .7em;
+
+        &:hover {
+          background: none;
+          color: $beige;
+        }
+      }
+    }
+  }
+
+  .footer-links {
+    padding: 25px 0 0;
+
+    a {
+      margin: 0 0 10px;
+
+      &:nth-child(odd) {
+        font-size: 1.1875em;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.phone {
+        font-size: 1.5em;
+        font-weight: 900;
+        background: url("/assets/images/telephone.png") 0 8px no-repeat;
+        padding: 0 0 0 38px;
+        color: #bfdbdd;
+      }
+
+      &.mail {
+        background: url("/assets/images/fa-envelope.png") no-repeat top left;
+        padding: 3px 0 2px 44px;
+        background-size: 40px;
+      }
+    }
+  }
+
+  .footer-line {
+    margin-top: -40px;
+
+    p:first-child {
+      border-top: 1px solid #c5c5c5;
+      padding-top: 12px;
+      margin-left: 15px;
+
+      font-size: 0.625em;
+      color: #c4c4c4;
+      text-align: right;
+
+    }
+  }
+}
+
+#content {
+  header {
+    //min-height: 480px;
+  }
+
+  h1 {
+    font-size: 2.25em;
+  }
+}
+
+.services {
+  #content {
+    header {
+      background: url("/assets/images/Acute pain header.png") no-repeat center center;
+      //background-size: contain;
+
+      div.table {
+        min-height: 480px;
+        margin: -50px 0 0;
+        h2 {
+          text-align: center;
+          font-size: 3.375em;
+          line-height: 1.7;
+
+          span {
+            font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 0.555em;
+            font-weight: bold;
+            color: #fff;
+            background: #d1a078;
+            padding: 8px 15px;
+            display: inline-block;
+            border-radius: 30px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+    }
+  }
+  #intro {
+    text-align: center;
+    margin: 45px 0;
+  }
+
+  #services {
+    text-align: center;
+    background: url("/assets/images/Servicespage.png") no-repeat center center;
+    background-size: cover;
+    padding: 40px 0;
+
+    .row {
+      margin-bottom: 40px;
+
+      h3 {
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-weight: 300;
+      }
+
+      p {
+        font-size: .9375em;
+      }
+    }
+  }
+}
+
+#appointment {
+  background: url("/assets/images/Appointmentbanner.png") no-repeat center center;
+  text-align: center;
+  min-height: 224px;
+  padding: 25px 0 10px;
+  margin: 50px 0;
+
+  p {
+    font-size: 3em;
+    font-family: Cinzel;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.2;
+
+    a {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+        color: $beige;
+      }
+    }
+
+    &.last {
+      margin-top: 1em;
+    }
+  }
+}
+
+.babies {
+  #content {
+    header {
+      text-align: center;
+      background: #000;
+      .header-image {
+      }
+    }
+
+    #description {
+      font-size: 0.9375em;
+    }
+  }
+}

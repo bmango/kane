@@ -30,6 +30,10 @@ img {
   background: url("/assets/images/Banner-line.png") no-repeat 0 90px;
   letter-spacing: 0;
 
+  @media (max-width: $screen-md-min) {
+    background-repeat: repeat-x;
+  }
+
   #logo {
     width: 300px;
     float: left;
@@ -42,9 +46,9 @@ img {
       float: left;
       background: #fff;
       font-size: 1.0625em;
-      height: 181px;
+      //height: 181px;
       box-sizing: border-box;
-      padding: 61px 0;
+      padding: 61px 0 0;
 
       p.address {
         padding: 0 20px 6px;
@@ -59,22 +63,20 @@ img {
     }
 
     #tel {
-      float: left;
-      background: #fff;
-      height: 181px;
-      display: table;
-      background: #fff url("/assets/images/telephone.png") 10px center no-repeat;
-      padding: 0 0 0 39px;
+
+      @media (min-width: $screen-md-min) {
+        float: left;
+        background: #fff;
+        height: 181px;
+        display: table;
+      }
 
       .phone {
         font-weight: bold;
         font-size: 1.5em;
         margin-right: 15px;
-      }
-
-      .book {
-        color: $green;
-        font-size: 1.125em;
+        background: #fff url("/assets/images/telephone.png") 10px center no-repeat;
+        padding: 0 0 0 44px;
       }
     }
   }
@@ -96,11 +98,20 @@ img {
   margin-bottom: 0;
   position: relative;
   z-index: 99;
-  background: rgba(38,48,63, 0.58);
   border: none;
   border-radius: 0;
   text-transform: uppercase;
-  font-size: 0.875em;
+
+  @media (max-width: $screen-sm-min) {
+    background: #777;
+  }
+  @media (min-width: $screen-sm-min) {
+    background: rgba(38,48,63, 0.58);
+  }
+
+    ul li a {
+    font-size: 0.875em;
+  }
 
   ul.navbar-nav {
     > li {
@@ -109,6 +120,41 @@ img {
 
         &:hover {
           color: $beige;
+        }
+      }
+
+      &:hover {
+        @media (min-width: $screen-sm-min) {
+          ul.dropdown-menu {
+            display: block;
+          }
+        }
+      }
+
+      > ul {
+        background: #e7e7e7;
+        padding: 0;
+
+        @media (max-width: $screen-sm-min) {
+          display: block;
+          position: static;
+          float: none;
+          background: none;
+          border: none;
+          box-shadow: none;
+
+          li a {
+            background: inherit;
+            color: #fff;
+          }
+        }
+        @media (min-width: $screen-sm-min) {
+          li {
+            a {
+              color: #000;
+              padding: 6px 10px;
+            }
+          }
         }
       }
     }
@@ -132,6 +178,13 @@ img {
   background: $light-beige;
 }
 
+@media (min-width: 767px) {
+  .navbar-nav .dropdown-menu .caret {
+    transform: rotate(-90deg);
+  }
+}
+
+
 body.home {
   h1 {
     font-size: 1.375em;
@@ -141,7 +194,7 @@ body.home {
 
   #home-header {
     text-align: center;
-    padding-bottom: 60px;
+    margin-bottom: 30px;
   }
 
   .our-services {
@@ -396,7 +449,7 @@ body.home {
 footer.site-footer {
   background: $dark-blue;
   margin: 60px 0 0;
-  min-height: 211px;
+  //min-height: 211px;
   color: #c4c4c4;
 
   img.footer-logo {
@@ -417,7 +470,7 @@ footer.site-footer {
 
   ul.nav {
     display: block;
-    padding: 25px 0;
+    padding: 15px 0 5px;
     column-count: 2;
     font-size: 0.875em;
 
@@ -426,7 +479,7 @@ footer.site-footer {
         color: #c4c4c4;
         text-transform: uppercase;
         padding: 5px 5px 0;
-        margin: 0 0 .7em;
+        margin: 0 0 .4em;
 
         &:hover {
           background: none;
@@ -437,10 +490,10 @@ footer.site-footer {
   }
 
   .footer-links {
-    padding: 25px 0 0;
+    padding: 15px 0 0;
 
     a {
-      margin: 0 0 10px;
+      margin: 0 0 2px;
 
       &:nth-child(odd) {
         font-size: 1.1875em;
@@ -454,25 +507,28 @@ footer.site-footer {
         font-size: 1.5em;
         font-weight: 900;
         background: url("/assets/images/telephone.png") 0 8px no-repeat;
-        padding: 0 0 0 38px;
+        padding: 3px 0 3px 38px;
         color: #bfdbdd;
+        margin-bottom: 8px;
+        line-height: 1.2;
       }
 
       &.mail {
         background: url("/assets/images/fa-envelope.png") no-repeat top left;
-        padding: 3px 0 2px 44px;
-        background-size: 40px;
+        padding: 3px 0 2px 41px;
+        background-size: 35px;
       }
     }
   }
 
   .footer-line {
-    margin-top: -40px;
+    margin-top: -32px;
 
     p:first-child {
       border-top: 1px solid #c5c5c5;
-      padding-top: 12px;
+      padding-top: 9px;
       margin-left: 15px;
+      margin-bottom: 5px;
 
       font-size: 0.625em;
       color: #c4c4c4;

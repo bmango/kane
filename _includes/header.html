@@ -8,12 +8,12 @@
         </div>
         <div id="contact" class="clearfix">
           <div id="address">
-            <p class="address">Harley Street, London W1G 8QH</p>
+            <p class="address">39 Harley Street, London W1G 8QH</p>
             <p class="address">73 Courtfield Gardens, London SW5 0NL</p>
           </div>
           <div id="tel">
             <div class="td">
-              <p><a class="phone" href="tel:+4420 7436 9007">020 7436 9007</a> <a class="book" href="/appointments.html" title="Book an appointment">book an appointment</a></p>
+              <p><a class="phone" href="tel:+4420 7436 9007">020 7436 9007</a></p>
             </div>
           </div>
         </div>
@@ -34,30 +34,15 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <div class="container">
           <ul class="nav navbar-nav">
-            {% assign pages = site.pages | sort:"order"  %}
-            {% for p in pages %}
-            {% if p.title %}
-            <li><a class="page-link" href="{{ p.url | relative_url }}">{{ p.title | escape }}</a></li>
-            {% endif %}
-            {% endfor %}
-
-              <li><a class="page-link" href="/">Home</a></li>
-
-
-
-              <li><a class="page-link" href="/babies.html">Osteopathy for Babies</a></li>
-
-
-
-              <li><a class="page-link" href="/services.html">Services</a></li>
-
-
-
-              <li><a class="page-link" href="/contact.html">Contact Us</a></li>
-
-
-
-              <li><a class="page-link" href="/about/">About</a></li>
+            <li><a class="page-link" href="/">Home</a></li>
+            <li>
+              <a href="/services.html" class="page-link">Services <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a class="page-link" href="/backpain.html">Back Pain</a></li>
+                <li><a class="page-link" href="/babies.html">Osteopathy for Babies</a></li>
+              </ul>
+            </li>
+            <li><a class="page-link" href="/contact.html">Contact Us</a></li>
           </ul>
         </div>
       </div>

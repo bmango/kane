@@ -3,9 +3,26 @@
 
 @import "bootstrap";
 
+$green: #82cdce;
+$light-green: #e0eeef;
+$beige: #e2a077;
+$light-beige: #f9f0e9;
+$dark-blue: #26303f;
+
 body {
   font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+a {
+  color: $beige;
+
+  &:hover {
+    //color: #000;
+    color: darken($beige, 20%);
+    text-decoration: none;
+  }
 }
 
 h1, h2 {
@@ -13,15 +30,58 @@ h1, h2 {
   font-weight: bolder;
 }
 
-$green: #82cdce;
-$light-green: #e0eeef;
-$beige: #e2a077;
-$light-beige: #f9f0e9;
-$dark-blue: #26303f;
+h4 {
+  margin: 1.3em 0 0.4em;
+  line-height: 1.3;
+}
+
+li {
+  margin-bottom: .5em;
+}
+
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+.image-center {
+  text-align: center;
+  padding: 25px 0;
+
+  img {
+    display: inline-block;
+    margin: 0 15px 20px;
+  }
+}
+
+#content > header {
+  background: #f5f5f5;
+  img {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    display: block;
+
+    @media (min-width: $screen-lg-min) {
+      max-width: 1170px;
+
+      .diagnosticultrasound & {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .pregnancy &, .flatheadsyndrome &, .childrenosteopathy & {
+    background: #000;
+  }
+}
+
+.site-header {
+  @media (max-width: $screen-sm-min) {
+    padding-top: 50px;
+  }
 }
 
 #banner {
@@ -30,12 +90,13 @@ img {
   background: url("/assets/images/Banner-line.png") no-repeat 0 90px;
   letter-spacing: 0;
 
+
   @media (max-width: $screen-md-min) {
     background-repeat: repeat-x;
   }
 
   #logo {
-    width: 300px;
+    max-width: 300px;
     float: left;
   }
 
@@ -110,6 +171,12 @@ img {
   border-radius: 0;
   text-transform: uppercase;
 
+  @media (max-width: $screen-sm-min) {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
   .navbar-toggle {
     background: #bbb;
     border-color: #fff;
@@ -122,52 +189,91 @@ img {
     background: rgba(38,48,63, 0.58);
   }
 
-    ul li a {
+  ul li a {
     font-size: 0.875em;
   }
 
   ul.navbar-nav {
-    > li {
+    ul.dropdown-menu {
+      margin: 0;
+      padding: 0;
+      background: #e7e7e7;
+
+      @media (max-width: $screen-sm-min) {
+        background: none;
+        display: block;
+        position: static;
+        float: none;
+        background: none;
+        border: none;
+        box-shadow: none;
+
+        a {
+          background: inherit;
+          color: #fff;
+          padding-left: 15px;
+          margin-left: 20px;
+
+          &:hover {
+            background: none;
+          }
+        }
+
+        ul {
+          padding-left: 30px;
+        }
+      }
+
+      @media (min-width: $screen-sm-min) {
+        > li {
+          a {
+            padding: 7px 15px;
+            color: #000;
+          }
+          ul {
+            left: 100%;
+            top: -5px;
+            display: none;
+            background: #e7e7e7;
+          }
+
+          &:hover {
+            ul {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    li {
+      margin: 0 !important;
+      position: relative;
+
       a {
-        color: #fff;
+        padding-top: 7px;
+        padding-bottom: 7px;
 
         &:hover {
           color: $beige;
         }
       }
+    }
 
-      &:hover {
-        @media (min-width: $screen-sm-min) {
-          ul.dropdown-menu {
+    > li {
+      a {
+        color: #fff;
+      }
+
+      @media (min-width: $screen-sm-min) {
+        &:hover {
+          > ul.dropdown-menu {
             display: block;
           }
         }
-      }
-
-      > ul {
-        background: #e7e7e7;
-        padding: 0;
-
-        @media (max-width: $screen-sm-min) {
-          display: block;
-          position: static;
-          float: none;
-          background: none;
-          border: none;
-          box-shadow: none;
-
-          li a {
-            background: inherit;
-            color: #fff;
-          }
-        }
-        @media (min-width: $screen-sm-min) {
-          li {
-            a {
-              color: #000;
-              padding: 6px 10px;
-            }
-          }
+        a {
+          padding-top: 14px;
+          padding-bottom: 14px;
         }
       }
     }
@@ -176,7 +282,10 @@ img {
 
 .slideshow-wrapper {
   background: #f5f5f5;
-  margin-top: -50px;
+
+  @media (min-width: $screen-md-min) {
+    margin-top: -50px;
+  }
 }
 
 .header-lines {
@@ -480,6 +589,11 @@ body.home {
       }
     }
 
+    .contact & {
+      background: none !important;
+      padding: 0 !important;
+    }
+
     @media (max-width: $screen-lg-min) {
       margin: auto;
       text-align: center;
@@ -507,9 +621,7 @@ footer.site-footer {
   color: #c4c4c4;
 
   img.footer-logo {
-    margin-left: -57px;
     display: block;
-    float: left;
   }
 
   a {
@@ -576,7 +688,13 @@ footer.site-footer {
   }
 
   .footer-line {
-    margin-top: -32px;
+    @media (min-width: $screen-lg-min) {
+      margin-top: -32px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      margin-top: 20px;
+    }
 
     p:first-child {
       border-top: 1px solid #c5c5c5;
@@ -628,8 +746,40 @@ footer.site-footer {
             text-transform: uppercase;
           }
         }
+
+        @media (max-width: $screen-sm-min) {
+          h2 {
+            font-size: 2.5em;
+          }
+        }
       }
 
+    }
+
+    #services a {
+      //border: 1px solid green;
+      overflow: hidden;
+      display: block;
+      transition: all 0.4s ease-in-out;
+      border-radius: 20px;
+
+      @media (max-width: $screen-sm-max) {
+        margin-bottom: 40px;
+      }
+      &:hover {
+        img {
+          filter: sepia(50%);
+          transition: all 0.4s ease-in-out;
+        }
+
+        p {
+          color: #000;
+        }
+      }
+      p {
+        color:#666;
+        transition: all 0.4s ease-in-out;
+      }
     }
   }
   #intro {
@@ -660,14 +810,19 @@ footer.site-footer {
 }
 
 #appointment {
-  background: url("/assets/images/Appointmentbanner.png") no-repeat center center;
+  background: url("/assets/images/Waiting-room-appointment.jpg") no-repeat center 60%;
   text-align: center;
   min-height: 224px;
   padding: 25px 0 10px;
   margin: 50px 0;
+  font-size: 3em;
+
+  @media (max-width: $screen-sm-min) {
+    background-position: center 65%;
+    font-size: 2.5em;
+  }
 
   p {
-    font-size: 3em;
     font-family: Cinzel;
     font-weight: bold;
     color: #fff;
@@ -702,3 +857,111 @@ footer.site-footer {
     }
   }
 }
+
+.well {
+  h4 {
+    //font-weight: lighter;
+    //text-transform: uppercase;
+    font-size: 1.1em;
+    margin: 0 0 0.8em;
+  }
+
+  a {
+    color: darken($beige, 10%);
+
+    &:hover {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+blockquote {
+  position: relative;
+  padding: 25px 35px 15px 45px;
+  border: none;
+  font-size: 1.1em;
+  letter-spacing: 0;
+  line-height: 1.3;
+  color: #777;
+  margin: 2em 0;
+  &:before {
+    color: #808080;
+    content: open-quote;
+    font-size: 5em;
+    position: absolute;
+    top:-20px;
+    left: 0;
+  }
+
+  &:after {
+    color: #808080;
+    content: close-quote;
+    font-size: 5em;
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+  }
+}
+
+.about-image {
+  text-align: center;
+}
+
+.accordion-container {
+  background: #ffffff;
+  padding: 5px 10px 10px 10px;
+  //border: 1px solid #cccccc;
+  border-radius: 5px;
+  //box-shadow: 0 5px 15px #cccccc;
+
+  .accordion-header {
+    background: #ebebeb;
+    margin: 1.4em 0;
+    padding: 5px 20px;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+    color: #666666;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px #cccccc;
+  }
+
+  .active-header {
+    border-radius: 5px 5px 0 0;
+    background: url(images/active-header.gif) #99cccc;
+    background-repeat: no-repeat;
+    background-position: right 50%;
+    margin-bottom: 0;
+
+  &:hover {
+    background: url(images/active-header.gif) #99cccc;
+    background-repeat: no-repeat;
+    background-position: right 50%;
+  }
+}
+
+  .inactive-header {
+    background: url(images/inactive-header.gif) #ebebeb;
+    background-repeat: no-repeat;
+    background-position: right 50%;
+
+  &:hover {
+    background: url(images/inactive-header.gif) #f5f5f5;
+    background-repeat: no-repeat;
+    background-position: right 50%;
+  }
+}
+
+  .accordion-content {
+    display: none;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+    width:auto !important;
+    font-size: 0.875em;
+    box-shadow: 0 5px 15px #cccccc;
+  }
+}
+

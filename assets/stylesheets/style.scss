@@ -55,6 +55,10 @@ img {
   }
 }
 
+aside {
+  font-weight: 400;
+}
+
 #content > header {
   background: #f5f5f5;
   img {
@@ -67,9 +71,15 @@ img {
     @media (min-width: $screen-lg-min) {
       max-width: 1170px;
 
+
       .diagnosticultrasound & {
         max-width: 100%;
       }
+    }
+
+    @media (min-width: $screen-md-min) {
+      margin-top: -50px;
+
     }
   }
 
@@ -79,7 +89,7 @@ img {
 }
 
 .site-header {
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: $screen-md-min) {
     padding-top: 50px;
   }
 }
@@ -123,6 +133,12 @@ img {
         overflow: hidden;
         &:first-child {
           border-bottom: 1px solid #c4c4c4;
+        }
+
+        @media (max-width: $screen-sm-min) {
+          padding-left: 0;
+          padding-right: 0;
+          font-size: 0.9em;
         }
       }
     }
@@ -171,7 +187,7 @@ img {
   border-radius: 0;
   text-transform: uppercase;
 
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: $screen-md-min) {
     position: absolute;
     top: 0;
     width: 100%;
@@ -182,10 +198,10 @@ img {
     border-color: #fff;
   }
 
-  @media (max-width: $screen-sm-min) {
+  @media (max-width: $screen-md-min) {
     background: #777;
   }
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-md-min) {
     background: rgba(38,48,63, 0.58);
   }
 
@@ -199,7 +215,7 @@ img {
       padding: 0;
       background: #e7e7e7;
 
-      @media (max-width: $screen-sm-min) {
+      @media (max-width: $screen-md-min) {
         background: none;
         display: block;
         position: static;
@@ -224,7 +240,7 @@ img {
         }
       }
 
-      @media (min-width: $screen-sm-min) {
+      @media (min-width: $screen-md-min) {
         > li {
           a {
             padding: 7px 15px;
@@ -265,7 +281,7 @@ img {
         color: #fff;
       }
 
-      @media (min-width: $screen-sm-min) {
+      @media (min-width: $screen-md-min) {
         &:hover {
           > ul.dropdown-menu {
             display: block;
@@ -293,6 +309,11 @@ img {
   padding: 70px 0;
   text-align: center;
   margin-bottom: 1em;
+}
+
+.no-header-lines {
+  margin: 40px 0;
+  text-align: center;
 }
 
 .well {
@@ -435,9 +456,10 @@ body.home {
 }
 
 #testimonials {
-  background: url("/assets/images/Waiting-room.jpg") no-repeat center 20%;
+  //background: url("/assets/images/Waiting-room.jpg") no-repeat center 20%;
+  background: rgba(38, 48, 63, 0.60);
   //padding: 0 25px;
-  margin: 35px 0;
+  margin: 0;
 
   .carousel-control {
     background: none !important;
@@ -466,6 +488,7 @@ body.home {
             quotes: "\201C""\201D";
             position: relative;
             display: inline-block;
+          color: #fff;
 
             p {
               padding: 0 40px 0 40px;
@@ -479,24 +502,27 @@ body.home {
             }
 
           &:before {
-            color: #808080;
+            //color: #808080;
+            color: #fff;
             content: open-quote;
             font-size: 7em;
             position: absolute;
-            top:25px;
+            top:40px;
             left: 0;
+            font-family: Cinzel;
           }
 
           &:after {
-            color: #808080;
+            //color: #808080;
+            color: #fff;
             content: close-quote;
             font-size: 7em;
             line-height: 0.3em;
-            margin-right: 0.25em;
-            vertical-align: -0.57em;
             padding: 0 0 0 .1em;
             position: absolute;
-            right: 0;
+            right: 20px;
+            top: 110%;
+            font-family: Cinzel;
           }
 
           &:first-child {
@@ -514,7 +540,9 @@ body.home {
 }
 
 #video {
-  background: url("/assets/images/videobgd.png") no-repeat center center;
+  //background: url("/assets/images/videobgd.png") no-repeat center center;
+  background: #e0eeef;
+  margin-top: 0;
 
   .video-wrapper {
     max-width: 100%;
@@ -523,9 +551,22 @@ body.home {
       display: block;
       margin: auto;
       max-width: 100%;
-      //height: auto;
+    }
+    @media (max-width: $screen-sm-min) {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
+
 }
 
 #blog {
@@ -724,15 +765,20 @@ footer.site-footer {
   #content {
     header {
       background: url("/assets/images/Acute pain header.png") no-repeat center center;
+
+      @media (min-width: $screen-md-min) {
+        margin-top: -50px;
+      }
       //background-size: contain;
 
       div.table {
         min-height: 480px;
-        margin: -50px 0 0;
+        margin: 0 0;
         h2 {
           text-align: center;
           font-size: 3.375em;
           line-height: 1.7;
+          margin-top: 50px;
 
           span {
             font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -810,7 +856,8 @@ footer.site-footer {
 }
 
 #appointment {
-  background: url("/assets/images/Waiting-room-appointment.jpg") no-repeat center 60%;
+  background: url("/assets/images/London-osteopathy.jpg") no-repeat center 60%;
+  background-size: cover;
   text-align: center;
   min-height: 224px;
   padding: 25px 0 10px;
@@ -847,9 +894,6 @@ footer.site-footer {
   #content {
     header {
       text-align: center;
-      background: #000;
-      .header-image {
-      }
     }
 
     #description {
@@ -860,8 +904,6 @@ footer.site-footer {
 
 .well {
   h4 {
-    //font-weight: lighter;
-    //text-transform: uppercase;
     font-size: 1.1em;
     margin: 0 0 0.8em;
   }
@@ -919,49 +961,41 @@ blockquote {
     background: #ebebeb;
     margin: 1.4em 0;
     padding: 5px 20px;
-    border: 1px solid #cccccc;
+    //border: 1px solid #cccccc;
     cursor: pointer;
     color: #666666;
     border-radius: 5px;
-    box-shadow: 0 5px 15px #cccccc;
+    //box-shadow: 0 5px 15px #cccccc;
   }
 
   .active-header {
     border-radius: 5px 5px 0 0;
-    background: url(images/active-header.gif) #99cccc;
-    background-repeat: no-repeat;
-    background-position: right 50%;
+    background: #99cccc;
     margin-bottom: 0;
 
   &:hover {
-    background: url(images/active-header.gif) #99cccc;
-    background-repeat: no-repeat;
-    background-position: right 50%;
+    background: #99cccc;
   }
 }
 
   .inactive-header {
-    background: url(images/inactive-header.gif) #ebebeb;
-    background-repeat: no-repeat;
-    background-position: right 50%;
+    background: #ebebeb;
 
   &:hover {
-    background: url(images/inactive-header.gif) #f5f5f5;
-    background-repeat: no-repeat;
-    background-position: right 50%;
+    background: #f5f5f5;
   }
 }
 
   .accordion-content {
     display: none;
     padding: 20px;
-    background: #ffffff;
-    border: 1px solid #cccccc;
+    background: #ebebeb;
+    //border: 1px solid #cccccc;
     border-top: 0;
     border-radius: 0 0 5px 5px;
     width:auto !important;
     font-size: 0.875em;
-    box-shadow: 0 5px 15px #cccccc;
+    //box-shadow: 0 5px 15px #cccccc;
   }
 }
 
